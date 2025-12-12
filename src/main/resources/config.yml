@@ -1,0 +1,78 @@
+# =========================================
+#       AnGuard Configuration
+# =========================================
+
+#API Connector
+vds:
+  ip: "127.0.0.1"
+  port: 8000
+  secret_key: "ANGUARD-Key"
+
+
+checks:
+  aim:
+    enabled: true
+
+
+autoban:
+  enable: true
+  command: 'kick {player} [AnGuard] Unfair Advantage detected by Neural Network!'
+  # Broadcast message (leave empty '' to disable)
+  broadcast-message: ''
+
+ai:
+  # DON'T TOUCH IF YOU DON'T KNOW WHAT THIS DOES!!!
+  # DON'T touch IF YOU DON'T KNOW WHAT THIS DOES!!!
+  # DON'T touch IF YOU DON'T KNOW WHAT THIS DOES!!!
+  sequence: 40
+
+  # DON'T TOUCH IF YOU DON'T KNOW WHAT THIS DOES!!!
+  # DON'T touch IF YOU DON'T KNOW WHAT THIS DOES!!!
+  # DON'T touch IF YOU DON'T KNOW WHAT THIS DOES!!!
+  step: 10
+
+
+
+  buffer:
+    # Buffer score required to ban the player
+    flag: 50.0
+    # Value to reset buffer to after a flag
+    reset-on-flag: 0
+    # How much to add to buffer if AI is confident (>90%)
+    # Formula: (sus - 0.9) * multiplier
+    multiplier: 40.0
+    # How much to subtract from buffer if AI thinks player is legit (<10%)
+    decrease: 5.5
+
+
+
+  # Damage Reduction (Soft Ban)
+  # If AI is suspicious but the buffer isn't full yet, reduce damage dealt.
+  damage-reduction:
+    enabled: true
+    # Suspicion threshold to start reducing damage (0.0 to 1.0)
+    suspicion: 0.9
+    # Reduction Strength (1.0 = Reduce to 0 damage at 100% confidence)
+    multiplier: 1.0
+
+
+messages:
+  prefix: "<#8D98FC>AnGuard <dark_gray><b>></b> "
+  no_permission: "<red>You do not have permission to execute this command."
+  player_only: "<red>This command can only be executed by a player."
+  player_not_found: "<red>Player <yellow>{player} <red>not found or offline."
+  invalid_usage: "<red>Usage: <gray>/anguard <subcommand> [player]"
+  recording_started_legit: "<gray>Started recording <green>LEGIT <gray>data for <white>{player}<gray>."
+  recording_started_cheat: "<gray>Started recording <red>CHEATER <gray>data for <white>{player}<gray>."
+  recording_stopped: "<gray>Stopped recording data for <white>{player}<gray>."
+  tracker_enabled: "<gray>Now tracking <aqua>{player}<gray>. Look at your Action Bar."
+  tracker_disabled: "<gray>Stopped tracking <aqua>{player}<gray>."
+  profile_header: "<dark_gray><st>       </st> <#8D98FC><bold>AnGuard Profile</bold> <dark_gray><st>       </st>"
+  profile_footer: "<dark_gray><st>                                   </st>"
+  profile_lines:
+    - "<gray>Player: <white>{player}"
+    - "<gray>Ping: <white>{ping}ms"
+    - "<gray>Client: <white>{client}"
+    - "<gray>Protocol: <white>{version}"
+    - "<gray>Suspicion: <#8D98FC>{suspicion}%"
+    - "<gray>Buffer: <yellow>{buffer}"

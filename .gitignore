@@ -1,0 +1,23 @@
+# IntelliJ project files
+.idea/
+*.iml
+*.iws
+
+# Gradle/Maven Build files
+build/
+target/
+.gradle/
+out/
+
+# Minecraft Run folders
+run/
+logs/
+crash-reports/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Virtual Environment (Python)
+venv/
+__pycache__/

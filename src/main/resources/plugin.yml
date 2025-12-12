@@ -1,0 +1,23 @@
+name: AnGuard
+version: '3.0'
+main: xyz.angames.anguardai.Anguardai
+api-version: '1.21'
+authors: [ SRS ]
+description: AnGames Anticheat - AnGuard + AI
+website: https://store.angames.xyz
+depend: [ProtocolLib]
+
+permissions:
+  anguard.admin:
+    description: Grants access to all AnGuard commands.
+    default: op
+  anguard.bypass:
+    description: Bypasses checks
+    default: false
+
+commands:
+  anguard:
+    description: Main AnGuard command.
+    permission: anguard.admin
+    aliases: [agac]
+    usage: /<command> [subcommand] [player]
